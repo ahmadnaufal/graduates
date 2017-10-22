@@ -1,5 +1,4 @@
-var cool = require('cool-ascii-faces');
-var pg = require('pg');
+var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 var express = require('express');
 var app = express();
@@ -9,6 +8,16 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+
+// set up mongoose
+var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/HelloMongoose';
+mongoose.connect(uristring, function(err, res) {
+  if (err) {
+    console.log("ERROR connecting to: " + uristring + ". " + err);
+  } else {
+    console.log("Successfully connected to: " + uristring);
+  }
+});
 
 app.set('port', (process.env.PORT || 5000));
 
