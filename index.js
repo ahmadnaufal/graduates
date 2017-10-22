@@ -24,8 +24,19 @@ app.get('/', function(request, response) {
 
 app.post('/message', function(request, response) {
   var code = request.body.messageCode;
-  response.send(code);
-})
+  response.render('pages/message', {code: code});
+});
+
+app.get('/create', function(request, response) {
+  response.render('pages/create');
+});
+
+app.post('/create', function(request, response) {
+  var message = request.body.message,
+      recipient = request.body.recipient,
+      code = request.body.code;
+  response.send(message + " " + recipient + " " + code);
+});
 
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));

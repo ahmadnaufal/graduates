@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+<section class="full-width">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 style="text-align: center;" class="mb-4">Create a new message</h1>
+        <form action="/create" method="POST">
+          <div class="form-group row">
+            <label for="recipient" class="col-sm-2 col-form-label">Send To</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Recipient Name" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="message" class="col-sm-2 col-form-label">Message</label>
+            <div class="col-sm-10">
+              <textarea class="form-control" id="message" name="message"></textarea>
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="code" class="col-sm-2 col-form-label">Pass Code</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="code" name="code" placeholder="Enter the Pass Code" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
