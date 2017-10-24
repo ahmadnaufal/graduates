@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+<section class="full-width">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 style="text-align: center;" class="mb-4">Create a new Recipient</h1>
+        <form action="/recipient" method="POST">
+          <div class="form-group row">
+            <label for="name" class="col-sm-2 col-form-label">Name</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="name" name="name" placeholder="Recipient Name" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="photo" class="col-sm-2 col-form-label">Photo</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="photo" name="photo" />
+            </div>
+          </div>
+          <div class="form-group row">
+            <label for="code" class="col-sm-2 col-form-label">Pass Code</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="code" name="code" placeholder="Enter the Pass Code" />
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

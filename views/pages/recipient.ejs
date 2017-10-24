@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <% include ../partials/header.ejs %>
+</head>
+
+<body>
+
+<section class="full-width">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h2 style="text-align: center;" class="mb-4">Recipient List</h1>
+        <table class="table">
+          <thead>
+            <th>Name</th>
+            <th>Photo</th>
+            <th>Code</th>
+            <th>Messages</th>
+          </thead>
+          <tbody>
+            <% results.forEach(function(recipient) { %>
+              <tr>
+                <td><%= recipient.name %></td>
+                <td><%= recipient.photo %></td>
+                <td><%= recipient.code %></td>
+                <td>
+                  <% recipient.messages.forEach(function(message) { %>
+                    <p><%= message.message %> (<%= message.from %>)</p>
+                  <% }); %>
+                </td>
+              </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>

@@ -11,11 +11,15 @@
     <div class="row">
       <div class="col-md-12">
         <h2 style="text-align: center;" class="mb-4">Create a new message</h1>
-        <form action="/create" method="POST">
+        <form action="/messageok" method="POST">
           <div class="form-group row">
             <label for="recipient" class="col-sm-2 col-form-label">Send To</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="recipient" name="recipient" placeholder="Recipient Name" />
+              <select name="recipient" id="recipient" class="form-control">
+                <% recipients.forEach(function(recipient) { %>
+                  <option value="<%= recipient._id %>"><%= recipient.name %></option>
+                <% }); %>
+              </select>
             </div>
           </div>
           <div class="form-group row">
@@ -25,9 +29,9 @@
             </div>
           </div>
           <div class="form-group row">
-            <label for="code" class="col-sm-2 col-form-label">Pass Code</label>
+            <label for="from" class="col-sm-2 col-form-label">From</label>
             <div class="col-sm-10">
-              <input type="text" class="form-control" id="code" name="code" placeholder="Enter the Pass Code" />
+              <input type="text" class="form-control" id="from" name="from" placeholder="Your name here" />
             </div>
           </div>
 
